@@ -23,7 +23,6 @@ app.get('/', function (req, res) {
     res.render('home')
 })
 
-
 app.get('/article', function (req, res) {
     res.render('article')
 })
@@ -40,8 +39,8 @@ app.get('/inscription', function (req, res) {
     res.render('inscription')
 })
 
-app.get('/login', function (req, res) {
-    res.render('login')
+app.get('/admin', function (req, res) {
+    res.render('admin')
 })
 
 app.get('/sitepartenaire', function (req, res) {
