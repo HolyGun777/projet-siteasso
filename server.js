@@ -8,15 +8,15 @@ const app = express();
 
 // Config Handlebars
 app.engine('.hbs', engine({
-    extname: '.hbs'
+    extname: '.hbs',
+    defaultLayout: "main",
+    adminLayout: "adminLayout"
 }));
 app.set('view engine', '.hbs');
 app.set('views', './views');
 
-
 // Route fichier static
 app.use('/assets', express.static('public'))
-
 
 // Router
 app.get('/', function (req, res) {
@@ -39,12 +39,22 @@ app.get('/inscription', function (req, res) {
     res.render('inscription')
 })
 
-app.get('/admin', function (req, res) {
-    res.render('admin')
+app.get('/admin1', function (req, res) {
+    res.render('admin1', {
+        layout: 'adminLayout'
+    })
 })
 
 app.get('/sitepartenaire', function (req, res) {
     res.render('sitepartenaire')
+})
+
+app.get('/pageerreur', function (req, res) {
+    res.render('pageerreur')
+})
+
+app.get('/*', function (req, res) {
+    res.render('pageerreur')
 })
 
 // Run server
